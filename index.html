@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src='pdfmake/build/pdfmake.min.js'></script> 
+    <script src='pdfmake/build/vfs_fonts.js'></script>
+    <title>Auto-Recibo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="row">
+        <form>
+            <!--Numero inicial-->
+            <label for="numeroInicial" class="nomecima">
+                <b>Numero inicial</b>
+            </label>
+            <input id="numeroInicial" class="inputUser" placeholder="Exemplo: 01">
+            <br>
+
+            <!--Locador-->
+            <label for="nomeLocador" class="nomecima">
+                <b>Nome do Locador</b>
+            </label>
+            <input id="nomeLocador" class="inputUser" placeholder="EX: João Vinicius Senna de Brito Pinto">
+            <br>
+
+            <!--Residencial ou Comercial-->
+            <label for="residencial" class="nomecima">
+                <b>Residencial ou Comercial?</b>
+            </label>
+            <br>
+            <select class="BUTTON2">
+                <option id="residencial" class="BUTTON2" value="residencial">Residencial</option>
+                <option id="comercial" class="BUTTON2" value="comercial">Comercial</option>
+            </select>
+            <br><br>
+
+            <!--Locatário-->
+            <label for="nomeLocatario" class="nomecima">
+                <b>Nome do Locatário</b>
+            </label>
+            <input id="nomeLocatario" class="inputUser" placeholder="EX: Alda Maria ALves de Brito">
+            <br>
+
+            <!--Endereço-->
+            <label for="endereco" class="nomecima">
+                <b>Endereço do imóvel</b>
+            </label>
+            <input id="endereco" class="inputUser" placeholder="EX: Rua: Padre Anchieta, N°:323, Bairro: Artur Alves, Seabra - BA, CEP: 46.900.000">
+            <br>
+
+            <!--Valor-->
+            <label for="valorRs" class="nomecima">
+                <b>Valor do imóvel</b>
+            </label>
+            <input id="valorRs" class="inputUser" placeholder="EX: 500,00">
+            <br>
+
+            <!--Valor por extenso-->
+            <label for="valorPorExtenso" class="nomecima">
+                <b>Valor do imóvel por extenso</b>
+            </label>
+            <input id="valorPorExtenso" class="inputUser" placeholder="EX: Quinhentos Reais">
+            <br>
+
+            <!--Data-->
+            <label for="diaData" class="nomecima">
+                <b>Dia</b>
+            </label>
+            <input id="diaData" class="inputUser" placeholder="EX: 15">
+            <br>
+
+            <label for="mesData" class="nomecima">
+                <b>Mês</b>
+            </label>
+            <input id="mesData" class="inputUser" placeholder="EX: 06">
+            <br>
+
+            <label for="anoData" class="nomecima">
+                <b>Ano</b>
+            </label>
+            <input id="anoData" class="inputUser" placeholder="EX: 2022">
+            <br>
+
+            <!--Numero de recibos-->
+            <label for="numeroRecibos" class="nomecima">
+                <b>Numero de recibos</b>
+            </label>
+            <input id="numeroRecibos" class="inputUser" placeholder="EX: 12">
+            <br>
+
+            <!--Botão submit-->
+            <br><br>
+            <input id="submit" type="button" class="BUTTON" value="Fazer Contrato">  
+        </form>
+    </div>
+    <script src="scriptPDF.js"></script>
+    <script type="text/javascript">(function(){window['__CF$cv$params']={r:'6d771943ee3c4d48',m:'ZkY3MIlHHMI472SgGFsc5lTWw0cUgJwuBU9_wA4vAWg-1643843487-0-ATZtN46gi7sV28qPp7Zuv6WK4QQFR2KCzJgf2WeqZsDEDSk/Xc2bqlILmaaiwZ0xioz4/ETYTNHATUvHKTYoka3DNCb/Oe+pvnvuBjazpv8cspmVxEPFUmw07KsFW7LZeemTSUR0KdM4Tpk77MZBdxlu3tRsavs8Iul7ahvsvvgh9wsbty3IXPkY0GnSNdnaZUTCQW4lwVpduf0lwO9KyqI=',s:[0x6baf3ef87a,0x072d80e02a],}})();</script>
+</body>
+</html>
