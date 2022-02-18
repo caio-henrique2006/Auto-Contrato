@@ -6,19 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src='pdfmake/build/pdfmake.min.js'></script> 
     <script src='pdfmake/build/vfs_fonts.js'></script>
-    <title>Auto-Recibo</title>
+    <title>Auto-Contrato</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="row">
         <form>
-            <!--Numero inicial-->
-            <label for="numeroInicial" class="nomecima">
-                <b>Numero inicial</b>
-            </label>
-            <input id="numeroInicial" class="inputUser" placeholder="Exemplo: 01">
-            <br>
-
             <!--Locador-->
             <label for="nomeLocador" class="nomecima">
                 <b>Nome do Locador</b>
@@ -26,29 +19,102 @@
             <input id="nomeLocador" class="inputUser" placeholder="EX: João Vinicius Senna de Brito Pinto">
             <br>
 
-            <!--Residencial ou Comercial-->
-            <label for="residencial" class="nomecima">
-                <b>Residencial ou Comercial?</b>
-            </label>
-            <br>
-            <select class="BUTTON2">
-                <option id="residencial" class="BUTTON2" value="residencial">Residencial</option>
-                <option id="comercial" class="BUTTON2" value="comercial">Comercial</option>
-            </select>
-            <br><br>
-
             <!--Locatário-->
             <label for="nomeLocatario" class="nomecima">
                 <b>Nome do Locatário</b>
             </label>
-            <input id="nomeLocatario" class="inputUser" placeholder="EX: Alda Maria ALves de Brito">
+            <input id="nomeLocatario" class="inputUser" placeholder="EX: Alda Maria Alves de Brito">
+            <br>
+
+            <!--Endereço imovel-->
+            <label for="enderecoImovel" class="nomecima">
+                <b>Endereço do Imóvel</b>
+            </label>
+            <input id="enderecoImovel" class="inputUser" placeholder="EX: Rua: Padre Anchieta, N°:323, Bairro: Artur Alves, Seabra - BA, CEP: 46.900.000">
             <br>
 
             <!--Endereço-->
-            <label for="endereco" class="nomecima">
-                <b>Endereço do imóvel</b>
+            <label for="enderecoLocador" class="nomecima">
+                <b>Endereço do Locador</b>
             </label>
-            <input id="endereco" class="inputUser" placeholder="EX: Rua: Padre Anchieta, N°:323, Bairro: Artur Alves, Seabra - BA, CEP: 46.900.000">
+            <input id="enderecoLocador" class="inputUser" placeholder="EX: Rua: Padre Anchieta, N°:323, Bairro: Artur Alves, Seabra - BA, CEP: 46.900.000">
+            <br>
+
+            <!--Endereço Locatário-->
+            <label for="enderecoLocatario" class="nomecima">
+                <b>Endereço do Locatário</b>
+            </label>
+            <input id="enderecoLocatario" class="inputUser" placeholder="EX: Rua: Padre Anchieta, N°:323, Bairro: Artur Alves, Seabra - BA, CEP: 46.900.000">
+            <br>
+
+            <!--Estado Civil Locador-->
+            <label for="civilLocador" class="nomecima">
+                <b>Estado Civil Locador</b>
+            </label>
+            <input id="civilLocador" class="inputUser" placeholder="EX: CASADO">
+            <br>
+
+            <!--Estado Civil Locatário-->
+            <label for="civilLocatario" class="nomecima">
+                <b>Estado Civil Locatário</b>
+            </label>
+            <input id="civilLocatario" class="inputUser" placeholder="EX: CASADO">
+            <br>
+
+            <!--CPF Locador-->
+            <label for="CPFLocador" class="nomecima">
+                <b>CPF do locador</b>
+            </label>
+            <input id="CPFLocador" class="inputUser" placeholder="EX: 260993655-91">
+            <br>
+
+            <!--CPF Locatário-->
+            <label for="CPFLocatario" class="nomecima">
+                <b>CPF do locatário</b>
+            </label>
+            <input id="CPFLocatario" class="inputUser" placeholder="EX: 260993655-91">
+            <br>
+
+            <!--RG Locador-->
+            <label for="RGLocador" class="nomecima">
+                <b>RG do locador</b>
+            </label>
+            <input id="RGLocador" class="inputUser" placeholder="EX: 00533378-40">
+            <br>
+
+            <!--RG Locatário-->
+            <label for="RGLocatario" class="nomecima">
+                <b>RG do locatário</b>
+            </label>
+            <input id="RGLocatario" class="inputUser" placeholder="EX: 00533378-40">
+            <br>
+
+            <!--Nacionalidade-->
+            <label for="nacionalidadeLocador" class="nomecima">
+                <b>Nacionalidade do locador</b>
+            </label>
+            <input id="nacionalidadeLocador" class="inputUser" placeholder="EX: BRASILEIRA">
+            <br>
+
+            <!--Nacionalidade-->
+            <label for="nacionalidadeLocatario" class="nomecima">
+                <b>Nacionalidade do locatario</b>
+            </label>
+            <input id="nacionalidadeLocatario" class="inputUser" placeholder="EX: BRASILEIRA">
+            <br>
+
+            <!--Trabalho Locador-->
+            <label for="trabalhoLocador" class="nomecima">
+                <b>Trabalho do locador</b>
+            </label>
+            <input id="trabalhoLocador" class="inputUser" placeholder="EX: AUTÔNOMA">
+            <br>
+
+            <!--Trabalho Locatario-->
+            <label for="trabalhoLocatario" class="nomecima">
+                <b>Trabalho do locatario</b>
+            </label>
+            <input id="trabalhoLocatario" class="inputUser" placeholder="EX: AUTÔNOMA">
             <br>
 
             <!--Valor-->
@@ -65,30 +131,32 @@
             <input id="valorPorExtenso" class="inputUser" placeholder="EX: Quinhentos Reais">
             <br>
 
-            <!--Data-->
-            <label for="diaData" class="nomecima">
-                <b>Dia</b>
+            <!--DataInicio-->
+            <label for="dataInicio" class="nomecima">
+                <b>Vencimento Início</b>
             </label>
-            <input id="diaData" class="inputUser" placeholder="EX: 15">
+            <input id="dataInicio" class="inputUser" placeholder="EX: 30/05/2020">
             <br>
 
-            <label for="mesData" class="nomecima">
-                <b>Mês</b>
+            <!--DataTermino-->
+            <label for="dataTermino" class="nomecima">
+                <b>Vencimento Término</b>
             </label>
-            <input id="mesData" class="inputUser" placeholder="EX: 06">
+            <input id="dataTermino" class="inputUser" placeholder="EX: 30/06/2020">
             <br>
 
-            <label for="anoData" class="nomecima">
-                <b>Ano</b>
+            <!--Prazo de Locação-->
+            <label for="prazoLocacao" class="nomecima">
+                <b>Prazo de Locação</b>
             </label>
-            <input id="anoData" class="inputUser" placeholder="EX: 2022">
+            <input id="prazoLocacao" class="inputUser" placeholder="EX: 12 (UM ANO) meses">
             <br>
 
-            <!--Numero de recibos-->
-            <label for="numeroRecibos" class="nomecima">
-                <b>Numero de recibos</b>
+            <!--OBS-->
+            <label for="OBS" class="nomecima">
+                <b>OBS (Colocar "OBS:")</b>
             </label>
-            <input id="numeroRecibos" class="inputUser" placeholder="EX: 12">
+            <input id="OBS" class="inputUser" placeholder="EX: OBS: O LOCATÁRIO USOU A CAUÇÃO NA DATA: 30/10/2021.">
             <br>
 
             <!--Botão submit-->
