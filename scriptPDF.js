@@ -45,6 +45,7 @@ pdfMake.fonts = {
 */
 submit.onclick = function() {
 
+  // variáveis strings:
   var nomeLocador = document.getElementById("nomeLocador").value.toUpperCase();
   var nomeLocatario = document.getElementById("nomeLocatario").value.toUpperCase();
 
@@ -76,6 +77,14 @@ submit.onclick = function() {
 
   var OBS = document.getElementById("OBS").value.toUpperCase();
 
+  // Variáveis Booleanas:
+  if(document.getElementById("representadoSIM").selected){
+    var representado = "REPRESENTADO PELA CORRETORA DE IMOVEIS: ALDA BRITO, REGISTRADA NO CRECI: 15108";
+    aldaBrito = "ALDA MARIA ALVES DE BRITO";
+  } else {
+    var representado = "";
+    aldaBrito = nomeLocador;
+  }
 
 
   var PDFContrato = {
@@ -94,15 +103,14 @@ submit.onclick = function() {
 
       {
         text: "LOCADOR(A): "+nomeLocador+", "+nacionalidadeLocador+", "+trabalhoLocador+", "+civilLocador+
-        ", PORTADORA DO RG Nº:"+RGLocador+", E CPF Nº:"+CPFLocador+" RESIDENTE E DOMICILIADA À RUA: "+enderecoLocador+" "+
-        "REPRESENTADO PELA CORRETORA DE IMOVEIS: ALDA BRITO, "+
-        "REGISTRADA NO CRECI: 15108.",
+        ", PORTADOR(A) DO RG Nº:"+RGLocador+", E CPF Nº:"+CPFLocador+" RESIDENTE E DOMICILIADA À RUA: "+enderecoLocador+" "+
+        ""+representado+".",
         bold: true,
       },
       
       // Estilo Geral:
       {
-        text: "\nLOCATÁRIO: "+nomeLocatario+", "+nacionalidadeLocatario+", PORTADORA DO RG: "+RGLocatario+", E CPF: "+
+        text: "\nLOCATÁRIO(A): "+nomeLocatario+", "+nacionalidadeLocatario+", PORTADOR(A) DO RG: "+RGLocatario+", E CPF: "+
         " "+CPFLocatario+", RESIDENTE EM "+enderecoLocatario+".",
         bold: true,
       },
@@ -131,7 +139,7 @@ submit.onclick = function() {
       },
       {
         text: "O prazo de locação é de "+prazoLocacao+", com termo inicial em "+dataInicio+" e termo final "+
-        "em "+dataTermino+", por ambas as parte com {Prazo de locação}, data em que o locatário se obriga a "+
+        "em "+dataTermino+", por ambas as parte com "+prazoLocacao+", data em que o locatário se obriga a "+
         "restituir o imóvel livre e desocupado, em condições idênticas à que recebeu, ressalvando o "+
         "desgaste natural do imóvel."
       },
@@ -143,7 +151,7 @@ submit.onclick = function() {
 
           {
             text: "Findo o prazo estipulado no caput desta Cláusula, operar-se-á o "+
-            "término da avença somente através de notificação por escrito do locador.",
+            "término da avença somente através de notificação por escrito do (a) locador (a).",
           }
 
         ],
@@ -156,7 +164,7 @@ submit.onclick = function() {
           bold: true,
         },
         {
-          text: "O LOCATÁRIO(A) juntamente com O LOCADOR(A), declara que vistoriarão o imóvel deste "+
+          text: "O(A) LOCATÁRIO(A) juntamente com O(A) LOCADOR(A), declara que vistoriarão o imóvel deste "+
           "Contrato, registrando suas reais condições por meio de fotografias, as quais seguem em "+
           "anexo, passando a compor o presente contrato. Vistoria inicial, essa, que servirá como "+
           "base comparativa na vistoria final, que ocorrerá no momento da entrega do imóvel, onde "+
@@ -208,7 +216,7 @@ submit.onclick = function() {
       {
         text: "Fica vedada a sublocação do imóvel ou a cessão dos direitos decorrentes"+
         " deste instrumento a terceiros, mesmo que parcial ou temporária, seja a que título for, por parte"+
-        " da LOCATARIA, sem a anuência, por escrito, do Locador.",
+        " da (a) LOCATARIO(A), sem a anuência, por escrito, do Locador (a).",
       },
       {
         text: "CLÁUSULA QUINTA",
@@ -216,7 +224,7 @@ submit.onclick = function() {
         bold: true,
       },
       {
-        text: "Além do aluguel mensal, incumbirá A LOCATÁRIA o pagamento de todas as despesas e tributos "+
+        text: "Além do aluguel mensal, incumbirá O(A) LOCATÁRIO(A) o pagamento de todas as despesas e tributos "+
         "incidentes sobre o imóvel, como, por exemplo, taxas de energia elétrica, água.",
       },
       {text: [
@@ -226,7 +234,7 @@ submit.onclick = function() {
       },
       {
         text: "- Os encargos da locação, especificados no caput desta cláusula, são de inteira"+
-        " responsabilidade da LOCATÁRIA, que se obriga a pagá-los em seus respectivos vencimentos, devendo"+
+        " responsabilidade do (a) LOCATÁRIO(A), que se obriga a pagá-los em seus respectivos vencimentos, devendo"+
         " comprová-los Administradora sempre que solicitado, e, em especial, quando do encerramento do Contrato.",
       },
       ]},
@@ -236,7 +244,7 @@ submit.onclick = function() {
         bold: true
       },
       {
-        text: "- A LOCATÁRIA obriga-se a manter as dependências locadas em boas condições de "+
+        text: "- O(A) LOCATÁRIO(A) obriga-se a manter as dependências locadas em boas condições de "+
         "higiene e limpeza, dentro das normas legais pertinentes."
       },
       ]},
@@ -247,12 +255,12 @@ submit.onclick = function() {
       },
       {
         text: "Nenhuma obra, modificação ou instalação, seja de qualquer natureza for poderá ser feita "+
-        "no imóvel sem o consentimento por escrito do LOCADOR.",
+        "no imóvel sem o consentimento por escrito do (a) LOCADOR(A).",
       },
       {
-        text: "A LOCATÁRIA terá direito à indenização por benfeitorias necessárias e úteis, valendo-se, "+
+        text: "O(A) LOCATÁRIO(A) terá direito à indenização por benfeitorias necessárias e úteis, valendo-se, "+
         "sobre tais benfeitorias, o direito de retenção, desde que as benfeitorias úteis tenham sido "+
-        "consentidas e autorizadas pelo LOCADOR."
+        "consentidas e autorizadas pelo LOCADOR(A)."
       },
       {
         text: "CLÁUSULA SÉTIMA",
@@ -270,12 +278,8 @@ submit.onclick = function() {
         bold: true,
       },
       {
-        text: "O LOCADOR fica a vistoriar o imóvel, objeto da locação, desde que agende antecipadamente"+
-        " tal visita com ALOCATÁRIA, de forma a não causar constrangimentos ou perturbações a este."
-      },
-      {
-        text: "A LOCATARIA não poderá infringir as normas de vizinhanças, levando em consideração a não "+
-        "perturbação do sossego alheio, respeitando, desta forma, horários e bons costumes."
+        text: "O(A) LOCADOR(A) fica a vistoriar o imóvel, objeto da locação, desde que agende antecipadamente"+
+        " tal visita com O(A) LOCATÁRIO(A), de forma a não causar constrangimentos ou perturbações a este."
       },
       {
         text: "CLÁUSULA NONA",
@@ -283,7 +287,7 @@ submit.onclick = function() {
         margin: [0, 10, 0, 0],
       },
       {
-        text: "A LOCATARIA não poderá infringir as normas de vizinhanças, levando em consideração "+
+        text: "O(A) LOCATARIO(A) não poderá infringir as normas de vizinhanças, levando em consideração "+
         "a não perturbação do sossego alheio, respeitando, desta forma, horários e bons costumes."
       },
       {
@@ -303,7 +307,7 @@ submit.onclick = function() {
         bold: true
       },
       {
-        text: "- Quando da Devolução das chaves o Locatário, deverão ser apresentados "+
+        text: "- Quando da Devolução das chaves o (a) Locatário (a), deverão ser apresentados "+
         "todos os recibos pagos durante todo período da Locação.",
       },
       ]},
@@ -338,7 +342,7 @@ submit.onclick = function() {
         margin: [0, 25, 0, 0],
       },
       {
-        text: "LOCADOR: ALDA MARIA ALVES DE BRITO PINTO",
+        text: "LOCADOR: "+aldaBrito+"",
         margin: [0, 0, 0, 0],
       },
       {
