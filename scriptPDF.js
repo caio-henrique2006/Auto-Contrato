@@ -14,35 +14,6 @@ pdfMake.fonts = {
   }
 };
 
-/*
-  LocadoraNome, Nacionalidade, Trabalho, Estado civil
-  RG, CPF, Endereço, Alda;
-  LocatarioNome, Nacionalidade, Estado civil, RG,
-  CPF, Residência;
-  Finalidade, Vencimento, Início, Término, Valor Mensal
-  da Locação;
-  
-  ids: 
-  nomeLocador
-  nomeLocatario
-  enderecoLocador
-  endereçoLocatario
-  civilLocador
-  civilLocatario
-  CPFLocador
-  CPFLocatario
-  RGLocador
-  RGLocatario
-  nacionalidadeLocador
-  nacionalidadeLocatario
-  trabalhoLocador
-  trabalhoLocatario
-  valorRs
-  valorPorExtenso
-  dataInicio
-  dataTermino
-  OBS
-*/
 submit.onclick = function() {
 
   // variáveis strings:
@@ -68,6 +39,7 @@ submit.onclick = function() {
   var trabalhoLocador = document.getElementById("trabalhoLocador").value.toUpperCase();
   var trabalhoLocatario = document.getElementById("trabalhoLocatario").value.toUpperCase();
 
+  var vencimento = document.getElementById("vencimento").value.toUpperCase();
   var dataInicio = document.getElementById("dataInicio").value.toUpperCase();
   var dataTermino = document.getElementById("dataTermino").value.toUpperCase();
   var prazoLocacao = document.getElementById("prazoLocacao").value.toUpperCase();
@@ -78,12 +50,65 @@ submit.onclick = function() {
   var OBS = document.getElementById("OBS").value.toUpperCase();
 
   // Variáveis Booleanas:
+
+
+  // Representado por Alda Brito:
   if(document.getElementById("representadoSIM").selected){
     var representado = "REPRESENTADO PELA CORRETORA DE IMOVEIS: ALDA BRITO, REGISTRADA NO CRECI: 15108";
     aldaBrito = "ALDA MARIA ALVES DE BRITO";
   } else {
     var representado = "";
     aldaBrito = nomeLocador;
+  }
+
+
+  // Rua ou Avenida imóvel:
+  if(document.getElementById("ruaImovel").selected) {
+    endereçoRuaOuAvenidaImovel = "RUA: "; 
+  }else{
+    endereçoRuaOuAvenidaImovel = "AVENIDA: "; 
+  }
+  // Rua ou Avenida Locador:
+  if(document.getElementById("ruaLocador").selected) {
+    endereçoRuaOuAvenidaLocador = "À RUA: ";
+  }else{
+    endereçoRuaOuAvenidaLocador = "NA AVENIDA: "; 
+
+  }
+  // Rua ou Avenida Locatario:
+  if(document.getElementById("ruaLocatario").selected) {
+    endereçoRuaOuAvenidaLocatario = "À RUA: "; 
+  }else{
+    endereçoRuaOuAvenidaLocatario = "NA AVENIDA: "; 
+  }
+
+  // Vírgulas:
+
+  // Trabalho:
+  if(trabalhoLocador != ""){
+    trabalhoLocador = trabalhoLocador + ", ";
+  }
+  //************
+  if(trabalhoLocatario != ""){
+    trabalhoLocatatrio = trabalhoLocatario + ", ";
+  }
+
+  // Civil:
+  if(civilLocatario != ""){
+    civilLocatario = civilLocatario + ", ";
+  }
+  //************
+  if(civilLocador != ""){
+    civilLocador = civilLocador + ", ";
+  }
+
+  // Nacionalidade:
+  if(nacionalidadeLocador != ""){
+    nacionalidadeLocador = nacionalidadeLocador + ", ";
+  }
+  //************
+  if(nacionalidadeLocatario != ""){
+    nacionalidadeLocatario = nacionalidadeLocatario + ", ";
   }
 
 
@@ -102,24 +127,24 @@ submit.onclick = function() {
       },
 
       {
-        text: "LOCADOR(A): "+nomeLocador+", "+nacionalidadeLocador+", "+trabalhoLocador+", "+civilLocador+
-        ", PORTADOR(A) DO RG Nº:"+RGLocador+", E CPF Nº:"+CPFLocador+" RESIDENTE E DOMICILIADA À RUA: "+enderecoLocador+" "+
-        ""+representado+".",
+        text: "LOCADOR(A): "+nomeLocador+", "+nacionalidadeLocador+trabalhoLocador+civilLocador+
+        "PORTADOR(A) DO RG Nº:"+RGLocador+", E CPF Nº:"+CPFLocador+" RESIDENTE E DOMICILIADA "+endereçoRuaOuAvenidaLocador
+        +enderecoLocador+". "+representado+".",
         bold: true,
       },
       
       // Estilo Geral:
       {
-        text: "\nLOCATÁRIO(A): "+nomeLocatario+", "+nacionalidadeLocatario+", PORTADOR(A) DO RG: "+RGLocatario+", E CPF: "+
-        " "+CPFLocatario+", RESIDENTE EM "+enderecoLocatario+".",
+        text: "\nLOCATÁRIO(A): "+nomeLocatario+", "+nacionalidadeLocatario+trabalhoLocatario+civilLocatario+"PORTADOR(A) DO RG: "+RGLocatario+", E CPF: "+
+        " "+CPFLocatario+", RESIDENTE "+endereçoRuaOuAvenidaLocatario+enderecoLocatario+".",
         bold: true,
       },
 
       {
         text: ("FINALIDADE: RESIDENCIAL\n" +
-               "VENCIMENTO: 30 DE CADA MÊS \n" + 
+               "VENCIMENTO: DIA "+ vencimento +" DE CADA MÊS \n" + 
                "INÍCIO: "+dataInicio+"                                                TÉRMINO: "+dataTermino+" \n" +
-               "VALOR MENSAL DA LOCAÇÃO: R$"+valorRs+""),
+               "VALOR MENSAL DA LOCAÇÃO: R$:"+valorRs+" ("+valorPorExtenso+")"),
         margin: [0, 10, 0, 0],
         bold: true,
       },
@@ -130,7 +155,7 @@ submit.onclick = function() {
       },
       {
         text: "Constitui objeto do presente Contrato a locação do imóvel residencial localizado nesta "+
-        "Cidade, na RUA: "+enderecoImovel+", cujo locador é o legítimo dono do "+
+        "Cidade, na "+endereçoRuaOuAvenidaImovel+enderecoImovel+", cujo locador é o legítimo dono do "+
         "imóvel, dando-o em locação ao locatário para fins exclusivamente residenciais.",
       },
       {
@@ -182,7 +207,7 @@ submit.onclick = function() {
       },
       {
         text: "O aluguel mensal ficara estipulado em R$: "+valorRs+", devendo ser pago até o 5º dia útil"+
-        " após o vencimento, AG:3542 CONTA:00977-6 (ALDA MARIA ALVES DE BRITO PINTO) BRADESCO."
+        " após o vencimento."
       },
       {text: [
       { 
