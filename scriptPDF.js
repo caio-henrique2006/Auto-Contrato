@@ -227,7 +227,7 @@ submit.onclick = function() {
             bold: true,
           },
           {
-            text: "Sobre o aluguel pago após o respectivo vencimento, fica obrigado a pagar multa de 10% "+
+            text: "Sobre o aluguel pago após o respectivo vencimento, fica obrigado a pagar multa de 2% "+
             "(dez por cento) sobre o valor do aluguel estipulado neste contrato, bem como juros de "+
             "mora de 1%(um por cento) ao mês, mais correção monetária"
           }
